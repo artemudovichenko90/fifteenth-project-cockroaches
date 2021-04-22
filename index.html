@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<style>
+    .cockroach {
+        width: 5vw;
+        height: 5vh;
+    }
+</style>
+<body>
+<script>
+    const getRandomValueInRange = (from, to) => {
+        return Math.floor(Math.random() * (to - from)) + from;
+    };
+
+    const onMouseOverButtonHandler = (e) => {
+        const randomX = getRandomValueInRange(0, 95);
+        const randomY = getRandomValueInRange(0, 95);
+        e.target.style.position = 'fixed';
+        e.target.style.left = `${randomX}vw`;
+        e.target.style.top = `${randomY}vh`;
+    };
+
+    for (let i = 0; i < 100; i++) {
+        const img = new Image();
+        img.src = 'img/cockroach.svg';
+        img.classList.add('cockroach');
+        img.addEventListener('mouseover', onMouseOverButtonHandler);
+        document.body.appendChild(img);
+    }
+</script>
+</body>
+</html>
